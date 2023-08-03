@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-api-service
+spec:
+  selector:
+    app: sample-api-docker
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort   # Use NodePort type to expose externally

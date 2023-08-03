@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apigateway-api-docker
+  template:
+    metadata:
+      labels:
+        app: apigateway-api-docker
+    spec:
+      containers:
+        - name: apigateway-api-docker
+          image: apigateway-api-docker
+          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          ports:
+            - containerPort: 80
