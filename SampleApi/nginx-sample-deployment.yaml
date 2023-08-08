@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-sample-deployment
+spec:
+  replicas: 1   # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: sample-api-docker
+  template:
+    metadata:
+      labels:
+        app: sample-api-docker
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-sample-app-config

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-apigateway-deployment
+spec:
+  replicas: 1   # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: apigateway-api-docker
+  template:
+    metadata:
+      labels:
+        app: apigateway-api-docker
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-gateway-app-config
