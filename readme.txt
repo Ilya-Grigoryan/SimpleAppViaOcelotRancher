@@ -1,3 +1,8 @@
+publish to iis
+dotnet publish --configuration Release --framework net7.0 --runtime win-x64 --output C:\inetpub\SimpleApp\GateWay
+dotnet publish --configuration Release --framework net7.0 --runtime win-x64 --output C:\inetpub\SimpleApp\SampleApi
+also need to change DownstreamHostAndPorts in ocelot.json
+
 docker build -t apigateway-api-docker .
 docker build -t sample-api-docker .
 
