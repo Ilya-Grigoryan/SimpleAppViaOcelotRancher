@@ -9,4 +9,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: ClusterIP   # Use NodePort type to expose externally
+  type: NodePort  #ClusterIP   # Use NodePort type to expose externally
