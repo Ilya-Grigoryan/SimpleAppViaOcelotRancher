@@ -1,14 +1,11 @@
-docker build -t apigateway-api-docker .
-docker build -t sample-api-docker .
+docker build -t apigateway-jk8s-api-docker .
+docker build -t sample-jk8s-api-docker .
+
+kubectl apply -f sample-api-deployment.yaml;kubectl apply -f sample-api-service.yaml
+kubectl apply -f gateway-deployment.yaml;kubectl apply -f gateway-service.yaml
 
 docker image ls
-
-kubectl apply -f .\SampleApi\sample-api-deployment.yaml
-
 kubectl get pods
-
-kubectl apply -f .\SampleApi\sample-api-service.yaml
-
 kubectl get svc sample-api-service
 
 
