@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apigateway-jk8s-api-deployment
+  name: sample-jk8s-api-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: apigateway-jk8s-api-docker
+      app: sample-jk8s-api-app
   template:
     metadata:
       labels:
-        app: apigateway-jk8s-api-docker
+        app: sample-jk8s-api-app
     spec:
       containers:
-        - name: apigateway-jk8s-api-docker
-          image: apigateway-jk8s-api-docker
+        - name: sample-jk8s-api-container
+          image: ilyagrigoryan/sample-jk8s-api-image
           imagePullPolicy: IfNotPresent   # Set the image pull policy
           ports:
             - containerPort: 80

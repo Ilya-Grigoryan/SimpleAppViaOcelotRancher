@@ -4,7 +4,7 @@ metadata:
   name: apigateway-jk8s-api-service
 spec:
   selector:
-    app: apigateway-jk8s-api-docker
+    app: apigateway-jk8s-api-app
   ports:
     - protocol: TCP
       port: 80
