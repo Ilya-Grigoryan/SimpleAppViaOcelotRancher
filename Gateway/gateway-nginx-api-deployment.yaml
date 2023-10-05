@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-api-deployment
+  name: gateway-nginx-api-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sample-api-docker
+      app: gateway-nginx-api-app
   template:
     metadata:
       labels:
-        app: sample-api-docker
+        app: gateway-nginx-api-app
     spec:
       containers:
-        - name: sample-api-docker
-          image: sample-api-docker
+        - name: gateway-nginx-api-container
+          image: ilyagrigoryan/gateway-nginx-api-image
           imagePullPolicy: IfNotPresent   # Set the image pull policy
           ports:
             - containerPort: 80

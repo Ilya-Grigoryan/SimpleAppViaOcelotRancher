@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-apigateway-deployment
+  name: sample-nginx-deployment
 spec:
   replicas: 1   # You can adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: apigateway-api-docker
+      app: sample-nginx-api-app
   template:
     metadata:
       labels:
-        app: apigateway-api-docker
+        app: sample-nginx-api-app
     spec:
       containers:
         - name: nginx
@@ -24,4 +24,4 @@ spec:
       volumes:
         - name: nginx-config
           configMap:
-            name: nginx-gateway-app-config
+            name: sample-nginx-app-config
