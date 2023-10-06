@@ -49,5 +49,13 @@ kubectl delete service nginx-gateway-app-service;kubectl delete configmap nginx-
 
 
 
+kubectl get pods | select-string nginx
+kubectl get svc | select-string nginx
+kubectl get pod -o wide | select-string nginx
+kubectl port-forward gateway-nginx-api-deployment-768998cf59-ct8h9 8082:80
+kubectl exec -it gateway-nginx-api-deployment-768998cf59-ct8h9 -c gateway-nginx-api-container -- /bin/bash
+kubectl exec pods gateway-nginx-api-deployment-768998cf59-ct8h9
+kubectl logs gateway-nginx-deployment-7fc8cd6768-jt2pt -c gateway-nginx-container
+
 apt-get update && apt-get install htop -y
 htop
