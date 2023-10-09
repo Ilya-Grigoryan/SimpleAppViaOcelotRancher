@@ -17,7 +17,7 @@ spec:
       containers:
         - name: nginx
           image: nginx
-          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          imagePullPolicy: Always   # Set the image pull policy
           ports:
             - containerPort: 80
           volumeMounts:

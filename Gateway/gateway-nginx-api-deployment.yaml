@@ -17,6 +17,6 @@ spec:
       containers:
         - name: gateway-nginx-api-container
           image: ilyagrigoryan/gateway-nginx-api-image
-          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          imagePullPolicy: Always   # Set the image pull policy
           ports:
             - containerPort: 80

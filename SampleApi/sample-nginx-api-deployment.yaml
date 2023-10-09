@@ -17,6 +17,6 @@ spec:
       containers:
         - name: sample-nginx-api-container
           image: ilyagrigoryan/sample-nginx-api-image
-          imagePullPolicy: IfNotPresent   # Set the image pull policy
+          imagePullPolicy: Always   # Set the image pull policy
           ports:
             - containerPort: 80
